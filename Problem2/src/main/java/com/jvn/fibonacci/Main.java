@@ -14,6 +14,7 @@ public class Main {
     for (int i=0; i<size; i++) {
       init[i] = INIT_SENTINEL;
     }
+
     return init;
   }
 

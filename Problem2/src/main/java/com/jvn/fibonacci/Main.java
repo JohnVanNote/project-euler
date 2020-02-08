@@ -7,18 +7,20 @@ public class Main {
 
   private static final int MAX = 4000000;
 
-  private static int fibonacciSum(final Fibonacci implementation, final int maxCount) {
+  private static int fibonacciSum(final Fibonacci implementation, final int maxValue) {
     int sum = 0;
+    int sequenceValue = 0;
     int count = 0;
 
-
-    while (count < maxCount) {
-      if (count % 10000 == 0) {
+    while (sequenceValue < maxValue) {
+      /*if (count % 10000 == 0) {
         System.out.println((count+0.0)/MAX + " complete");
-      }
+      }*/
+
+      sequenceValue = implementation.sequenceValue(count);
 
       if (count % 2 == 0) {
-        sum += implementation.sequenceValue(count);
+        sum += sequenceValue;
       }
       count++;
     }

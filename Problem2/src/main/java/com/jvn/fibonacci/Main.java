@@ -18,7 +18,7 @@ public class Main {
       }
 
       if (count % 2 == 0) {
-        sum = implementation.sequenceValue(count);
+        sum += implementation.sequenceValue(count);
       }
       count++;
     }
@@ -27,18 +27,25 @@ public class Main {
   }
 
   public static void main(String[] args) {
-    Fibonacci bruteForceFibonacci = new BruteForceFibonacci();
+    Fibonacci matrixFibonacci = new MatrixFibonacci();
     Fibonacci memoizationFibonacci = new MemoizationFibonacci();
     Fibonacci bruteForceNonRecursiveFibonacci = new BruteForceNonRecursiveFibonacci();
-    List<Fibonacci> fibonaccis = Arrays.asList(bruteForceFibonacci, memoizationFibonacci, bruteForceNonRecursiveFibonacci);
+    Fibonacci bruteForceFibonacci = new BruteForceFibonacci();
+    List<Fibonacci> fibonaccis = Arrays.asList(
+        matrixFibonacci,
+        memoizationFibonacci,
+        bruteForceNonRecursiveFibonacci,
+        bruteForceFibonacci
+    );
 
     for (Fibonacci fibonacci : fibonaccis) {
       try {
+        System.out.println("Starting test " + fibonacci.name());
         System.out.println(fibonacciSum(fibonacci, MAX));
-
+        System.out.println("Ending test " + fibonacci.name());
         // Catch the StackOverflow Error
       } catch (Throwable t) {
-        System.out.println("Unable to generate " + t.getMessage());
+        System.out.println("Unable to generate fibonnacci sum for  " + fibonacci.name() + ", error:" + t.getMessage());
       }
     }
   }

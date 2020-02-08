@@ -14,6 +14,10 @@ public class MemoizationFibonacci implements Fibonacci {
     return memoized.get(position);
   }
 
+  public String name() {
+    return "Memoization Fibonacci";
+  }
+
   private List<Integer> initMemoized() {
     List<Integer> memoized = new ArrayList<Integer>();
     memoized.add(0);

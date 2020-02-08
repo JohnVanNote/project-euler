@@ -20,4 +20,8 @@ public class BruteForceNonRecursiveFibonacci implements Fibonacci {
     return total;
   }
 
+  public String name() {
+    return "Brute Force Non-Recursive Fibonacci";
+  }
+
 }

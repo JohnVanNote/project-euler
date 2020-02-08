@@ -4,4 +4,6 @@ public interface Fibonacci {
 
   int sequenceValue(int position);
 
+  String name();
+
 }

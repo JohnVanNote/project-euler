@@ -8,4 +8,8 @@ public class BruteForceFibonacci implements Fibonacci {
     return sequenceValue(position - 1) + sequenceValue(position - 2);
   }
 
+  public String name() {
+    return "Brute Force Fibonacci";
+  }
+
 }

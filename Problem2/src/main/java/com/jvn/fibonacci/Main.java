@@ -1,7 +1,9 @@
 package com.jvn.fibonacci;
 
+import com.google.common.base.Stopwatch;
 import java.util.Arrays;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 public class Main {
 
@@ -13,10 +15,6 @@ public class Main {
     int count = 0;
 
     while (sequenceValue < maxValue) {
-      /*if (count % 10000 == 0) {
-        System.out.println((count+0.0)/MAX + " complete");
-      }*/
-
       sequenceValue = implementation.sequenceValue(count);
 
       if (count % 2 == 0) {
@@ -41,6 +39,7 @@ public class Main {
     );
 
     for (Fibonacci fibonacci : fibonaccis) {
+      Stopwatch stopwatch = Stopwatch.createStarted();
       try {
         System.out.println("Starting test " + fibonacci.name());
         System.out.println(fibonacciSum(fibonacci, MAX));
@@ -49,6 +48,8 @@ public class Main {
       } catch (Throwable t) {
         System.out.println("Unable to generate fibonnacci sum for  " + fibonacci.name() + ", error:" + t.getMessage());
       }
+      stopwatch.stop();
+      System.out.println(fibonacci.name() + " completed in " + stopwatch.elapsed(TimeUnit.MICROSECONDS) + " microseconds");
     }
   }
 

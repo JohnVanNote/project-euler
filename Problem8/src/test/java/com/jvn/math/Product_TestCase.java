@@ -1,5 +1,6 @@
 package com.jvn.math;
 
+import java.math.BigInteger;
 import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
@@ -18,7 +19,7 @@ public class Product_TestCase {
 
   @Test(dataProvider = "numbers")
   public void greatestProduct_numbers_result(int length, long result) {
-    Assert.assertEquals(Product.greatestProduct(Product.NUMBER, length), result);
+    Assert.assertEquals(Product.greatestProduct(Product.NUMBER, length), BigInteger.valueOf(result));
   }
 
 }

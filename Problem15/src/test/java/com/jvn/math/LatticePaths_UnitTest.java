@@ -8,7 +8,7 @@ public class LatticePaths_UnitTest {
 
   @DataProvider
   public Object[][] sizes() {
-    return new Object[][] {
+    return new Object[][]{
         {0, 0, 1},
         {1, 0, 1},
         {1, 1, 2},

@@ -8,7 +8,7 @@ public class Prime_TestCase {
 
   @DataProvider
   public Object[][] data() {
-    return new Object[][] {
+    return new Object[][]{
         {1, 2},
         {2, 3},
         {3, 5},

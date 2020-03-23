@@ -1,4 +1,4 @@
-package com.jvn.fibonacci;
+package com.jvn.math.fibonacci;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -19,7 +19,7 @@ public class MemoizationFibonacci implements Fibonacci {
   }
 
   private List<Integer> initMemoized() {
-    List<Integer> memoized = new ArrayList<Integer>();
+    List<Integer> memoized = new ArrayList<>();
     memoized.add(0);
     memoized.add(1);
     return memoized;

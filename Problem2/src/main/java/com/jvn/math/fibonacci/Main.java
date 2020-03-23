@@ -1,4 +1,4 @@
-package com.jvn.fibonacci;
+package com.jvn.math.fibonacci;
 
 import com.google.common.base.Stopwatch;
 import java.util.Arrays;

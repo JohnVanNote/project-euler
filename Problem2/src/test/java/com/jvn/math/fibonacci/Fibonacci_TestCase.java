@@ -1,4 +1,4 @@
-package com.jvn.fibonacci;
+package com.jvn.math.fibonacci;
 
 import org.testng.Assert;
 import org.testng.annotations.DataProvider;
@@ -12,7 +12,7 @@ public abstract class Fibonacci_TestCase {
 
   @DataProvider
   public Object[][] inputs() {
-    return new Object[][] {
+    return new Object[][]{
         {0, 0},
         {1, 1},
         {2, 1},

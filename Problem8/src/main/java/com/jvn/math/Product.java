@@ -28,14 +28,19 @@ public class Product {
   public static BigInteger greatestProduct(String digitFeed, int length) {
     BigInteger max = BigInteger.ZERO;
     int digitLength = digitFeed.length();
-    if (digitLength > length) max = multiplyDigits(digitFeed);
-    for (int i=0; i<digitLength-(length+1); i++) {
-      String miniFeed = digitFeed.substring(i, i+length);
+
+    if (digitLength > length) {
+      max = multiplyDigits(digitFeed);
+    }
+
+    for (int i = 0; i < digitLength - (length + 1); i++) {
+      String miniFeed = digitFeed.substring(i, i + length);
       BigInteger tempMax = multiplyDigits(miniFeed);
       if (tempMax.compareTo(max) > 0) {
         max = tempMax;
       }
     }
+
     return max;
   }
 

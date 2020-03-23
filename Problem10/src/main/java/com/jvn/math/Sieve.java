@@ -10,14 +10,14 @@ public class Sieve {
   private static final boolean IS_NOT_PRIME = false;
 
   public static List<Boolean> initialize(int max) {
-    List<Boolean> init = new ArrayList<Boolean>(max);
+    List<Boolean> init = new ArrayList<>(max);
     if (max >= 0) {
       init.add(IS_NOT_PRIME);
       if (max >= 1) {
         init.add(IS_NOT_PRIME);
       }
 
-      for (int i=2; i<max; i++) {
+      for (int i = 2; i < max; i++) {
         init.add(IS_PRIME);
       }
     }
@@ -29,7 +29,7 @@ public class Sieve {
     long sum = 0;
     List<Boolean> init = initialize(under);
 
-    for (int num=2; num<under; num++) {
+    for (int num = 2; num < under; num++) {
       if (init.get(num)) {
 
         sum += num;

@@ -9,7 +9,7 @@ public class PrimeFactorization_TestCase {
 
   @DataProvider
   public Object[][] data() {
-    return new Object[][] {
+    return new Object[][]{
         {BigInteger.valueOf(26), 13},
         {BigInteger.valueOf(13195), 29}
     };

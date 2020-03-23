@@ -9,7 +9,7 @@ public class Sieve_UnitTest {
 
   @DataProvider
   public Object[][] combinations() {
-    return new Object[][] {
+    return new Object[][]{
         {1, 0L},
         {2, 0L},
         {3, 2L},

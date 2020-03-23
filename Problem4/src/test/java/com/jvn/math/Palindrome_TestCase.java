@@ -13,7 +13,7 @@ public class Palindrome_TestCase {
 
   @DataProvider
   public Object[][] palindromes() {
-    return new Object[][] {
+    return new Object[][]{
         {9009},
         {5},
         {11},
@@ -29,7 +29,7 @@ public class Palindrome_TestCase {
 
   @DataProvider
   public Object[][] notPalindromes() {
-    return new Object[][] {
+    return new Object[][]{
         {9019},
         {52},
         {110},

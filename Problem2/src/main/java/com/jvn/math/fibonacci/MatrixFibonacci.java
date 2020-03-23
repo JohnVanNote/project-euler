@@ -1,4 +1,4 @@
-package com.jvn.fibonacci;
+package com.jvn.math.fibonacci;
 
 import com.jvn.math.Matrix;
 import java.util.Arrays;
@@ -13,7 +13,7 @@ public class MatrixFibonacci implements Fibonacci {
           Arrays.asList(1, 0)
       ));
 
-      value = matrix.power(position-1).getMatrix().get(0).get(0);
+      value = matrix.power(position - 1).getMatrix().get(0).get(0);
     }
     return value;
   }

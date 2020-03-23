@@ -12,7 +12,7 @@ public class TriangleNumber {
   }
 
   public static Set<Long> getDivisors(long num) {
-    Set<Long> divisors = new HashSet<Long>();
+    Set<Long> divisors = new HashSet<>();
     divisors.add(1L);
 
     for (long i = 1; i * i < num; i++) {

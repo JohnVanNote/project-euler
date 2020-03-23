@@ -30,33 +30,40 @@ public class GridProduct {
     List<List<Integer>> gridValue = grid.getGrid();
 
     long max = 0;
-    for (int i = 0; i < grid.getMaxRow()-adjacentNum; i++) {
-      for (int j=0; j<grid.getMaxColumn()-adjacentNum; j++) {
+    for (int i = 0; i < grid.getMaxRow() - adjacentNum; i++) {
+      for (int j = 0; j < grid.getMaxColumn() - adjacentNum; j++) {
 
         long horizontalMax = 1;
         long verticalMax = 1;
         long diagonalRightMax = 1;
         long diagonalLeftMax = 1;
 
-        for (int k=0; k<adjacentNum; k++) {
-          horizontalMax *= gridValue.get(i).get(j+k);
-          verticalMax *= gridValue.get(i+k).get(j);
-          diagonalRightMax *= gridValue.get(i+k).get(j+k);
-          diagonalLeftMax *= gridValue.get(i+k).get(j+adjacentNum-k);
+        for (int k = 0; k < adjacentNum; k++) {
+          horizontalMax *= gridValue.get(i).get(j + k);
+          verticalMax *= gridValue.get(i + k).get(j);
+          diagonalRightMax *= gridValue.get(i + k).get(j + k);
+          diagonalLeftMax *= gridValue.get(i + k).get(j + adjacentNum - k);
         }
 
-        if (horizontalMax > max) max = horizontalMax;
-        if (verticalMax > max) max = verticalMax;
-        if (diagonalRightMax > max) max = diagonalRightMax;
-        if (diagonalLeftMax > max) max = diagonalLeftMax;
+        if (horizontalMax > max) {
+          max = horizontalMax;
+        }
+        if (verticalMax > max) {
+          max = verticalMax;
+        }
+        if (diagonalRightMax > max) {
+          max = diagonalRightMax;
+        }
+        if (diagonalLeftMax > max) {
+          max = diagonalLeftMax;
+        }
       }
     }
 
     return max;
   }
 
-  public static void main(String []args) {
-    Grid grid = new Grid(GRID);
+  public static void main(String[] args) {
     System.out.println(maxProduct(GRID, 4));
   }
 

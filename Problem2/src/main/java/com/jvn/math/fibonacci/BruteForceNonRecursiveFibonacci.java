@@ -1,12 +1,15 @@
-package com.jvn.fibonacci;
+package com.jvn.math.fibonacci;
 
 public class BruteForceNonRecursiveFibonacci implements Fibonacci {
 
   public int sequenceValue(int position) {
     int total = 0;
-    if (position == 1) total = 1;
-    if (position == 2) total = 1;
-    else {
+    if (position == 1) {
+      total = 1;
+    }
+    if (position == 2) {
+      total = 1;
+    } else {
 
       int previous1 = 1;
       int previous2 = 1;

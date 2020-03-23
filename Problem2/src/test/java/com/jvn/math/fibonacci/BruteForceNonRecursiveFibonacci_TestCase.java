@@ -1,4 +1,4 @@
-package com.jvn.fibonacci;
+package com.jvn.math.fibonacci;
 
 public class BruteForceNonRecursiveFibonacci_TestCase extends Fibonacci_TestCase {
 

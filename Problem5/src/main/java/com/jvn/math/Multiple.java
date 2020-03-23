@@ -11,7 +11,7 @@ public class Multiple {
     while (!cleanDivide) {
       num++;
       boolean tempCleanDivide = true;
-      for (int i=max; i>max/2; i--) {
+      for (int i = max; i > max / 2; i--) {
         tempCleanDivide = tempCleanDivide && (num % i == 0);
       }
       cleanDivide = tempCleanDivide;

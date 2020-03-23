@@ -9,7 +9,7 @@ public class Product_TestCase {
 
   @DataProvider
   public Object[][] numbers() {
-    return new Object[][] {
+    return new Object[][]{
         {0, 0},
         {1, 9},
         {2, 81},

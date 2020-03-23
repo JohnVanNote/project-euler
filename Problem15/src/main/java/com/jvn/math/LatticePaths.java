@@ -12,7 +12,7 @@ public class LatticePaths {
   public static long numRoutes(int x, int y) {
 
     long routes = 0;
-    List<Integer> key = new ArrayList<Integer>(2);
+    List<Integer> key = new ArrayList<>(2);
     key.add(x);
     key.add(y);
 

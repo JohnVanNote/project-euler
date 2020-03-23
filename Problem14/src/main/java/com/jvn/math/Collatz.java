@@ -15,7 +15,7 @@ public class Collatz {
     COLLATZ_MAP.put(1L, Collections.singletonList(1L));
   }
 
-  public static List<Long>getSequence(long number) {
+  public static List<Long> getSequence(long number) {
     if (!COLLATZ_MAP.containsKey(number)) {
       long nextNumber;
       if (number % 2 == 0) {
@@ -39,6 +39,7 @@ public class Collatz {
   public static void main(String[] args) {
     int maxChain = 0;
     int maxNumber = 1;
+
     for (int i = 1; i < MAX; i++) {
       List<Long> sequence = getSequence(i);
       int tempChain = sequence.size();
@@ -46,9 +47,8 @@ public class Collatz {
         maxChain = tempChain;
         maxNumber = i;
       }
-
-      //System.out.println(i + " done");
     }
+
     System.out.println("Number " + maxNumber + " has a chain size of " + maxChain);
   }
 

@@ -10,7 +10,7 @@ public class TriangleNumber_UnitTest {
 
   @DataProvider
   public Object[][] sequences() {
-    return new Object[][] {
+    return new Object[][]{
         {1, 1},
         {2, 3},
         {3, 6},
@@ -28,7 +28,7 @@ public class TriangleNumber_UnitTest {
 
   @DataProvider
   public Object[][] divisors() {
-    return new Object[][] {
+    return new Object[][]{
         {1, ImmutableSet.of(1L)},
         {3, ImmutableSet.of(1L, 3L)},
         {6, ImmutableSet.of(1L, 2L, 3L, 6L)},

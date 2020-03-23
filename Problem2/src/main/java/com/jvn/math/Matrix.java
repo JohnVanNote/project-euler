@@ -1,14 +1,13 @@
 package com.jvn.math;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 public class Matrix {
 
   private List<List<Integer>> matrix;
 
-  public Matrix (List<List<Integer>> matrix) {
+  public Matrix(List<List<Integer>> matrix) {
     setMatrix(matrix);
   }
 
@@ -17,7 +16,9 @@ public class Matrix {
   }
 
   public void setMatrix(final List<List<Integer>> matrix) {
-    if (!verify(matrix)) throw new IllegalArgumentException(String.format("Matrix %s is not valid.", matrix));
+    if (!verify(matrix)) {
+      throw new IllegalArgumentException(String.format("Matrix %s is not valid.", matrix));
+    }
     this.matrix = matrix;
   }
 
@@ -25,7 +26,7 @@ public class Matrix {
     Matrix result = new Matrix(matrix);
 
     if (exponent != 1) {
-      for (int i = 1; i<exponent; i++) {
+      for (int i = 1; i < exponent; i++) {
         result = result.multiply(new Matrix(matrix));
       }
     }
@@ -42,13 +43,13 @@ public class Matrix {
     int m2Rows = otherMatrixComponents.size();
     int m2Cols = otherMatrixComponents.get(0).size();
 
-    List<List<Integer>> outerResult = new ArrayList<List<Integer>>();
+    List<List<Integer>> outerResult = new ArrayList<>();
 
-    for (int i=0; i<m1Rows; i++) {
-      List<Integer> innerResult = new ArrayList<Integer>();
-      for (int j=0; j<m2Cols; j++) {
+    for (int i = 0; i < m1Rows; i++) {
+      List<Integer> innerResult = new ArrayList<>();
+      for (int j = 0; j < m2Cols; j++) {
         int cell = 0;
-        for (int k=0; k<m1Cols; k++) {
+        for (int k = 0; k < m1Cols; k++) {
           int x = matrix.get(i).get(k);
           int y = otherMatrixComponents.get(k).get(j);
           cell += x * y;
@@ -68,7 +69,7 @@ public class Matrix {
       valid = false;
     } else {
       int rowSize = matrix.get(0).size();
-      for (List<Integer> row: matrix) {
+      for (List<Integer> row : matrix) {
         valid = valid && (row.size() == rowSize);
       }
     }
@@ -79,30 +80,5 @@ public class Matrix {
   public String toString() {
     return "Matrix{" + "matrix=" + matrix + '}';
   }
-
-  /*
-  public static void main(String[] args) {
-    Matrix m = new Matrix(Arrays.asList(
-        Arrays.asList(0, 1),
-        Arrays.asList(0, 1)
-    ));
-
-    Matrix m1 = new Matrix(Arrays.asList(
-        Arrays.asList(4, 6, 2),
-        Arrays.asList(1, 3, -3)
-    ));
-
-    Matrix m2 = new Matrix(Arrays.asList(
-        Arrays.asList(-2, -4, 4, 2),
-        Arrays.asList(-1, 5, 0, 3),
-        Arrays.asList(6, -3, 1, 7)
-    ));
-
-    System.out.println("M1 " + m1);
-    System.out.println("M2 " + m2);
-    System.out.println("Result " + m1.multiply(m2));
-    System.out.println("Power " + m.power(2));
-  }
-  */
 
 }

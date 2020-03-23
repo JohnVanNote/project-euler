@@ -45,17 +45,17 @@ public class AbstractIntegerToWordsBaseTest_UnitTest {
         {90, "ninety"},
         {98, "ninety eight"},
         {100, "one hundred"},
-        {101, "one hundred one"},
-        {103, "one hundred three"},
-        {107, "one hundred seven"},
-        {109, "one hundred nine"},
-        {113, "one hundred thirteen"},
-        {127, "one hundred twenty seven"},
-        {131, "one hundred thirty one"},
+        {101, "one hundred and one"},
+        {103, "one hundred and three"},
+        {107, "one hundred and seven"},
+        {109, "one hundred and nine"},
+        {113, "one hundred and thirteen"},
+        {127, "one hundred and twenty seven"},
+        {131, "one hundred and thirty one"},
         {1000, "one thousand"},
         {2500, "two thousand five hundred"},
-        {3750, "three thousand seven hundred fifty"},
-        {4875, "four thousand eight hundred seventy five"},
+        {3750, "three thousand seven hundred and fifty"},
+        {4875, "four thousand eight hundred and seventy five"},
         {10000, "ten thousand"},
         {100000, "one hundred thousand"},
         {1000000, "one million"},
@@ -90,18 +90,18 @@ public class AbstractIntegerToWordsBaseTest_UnitTest {
         {new BigInteger("100000000000000000000000000000000000"), "one hundred decillion"},
         {new BigInteger("123456789123456789123456789123456789"),
             ""
-                + "one hundred twenty three decillion "
-                + "four hundred fifty six nonillion "
-                + "seven hundred eighty nine octillion "
-                + "one hundred twenty three septillion "
-                + "four hundred fifty six sextillion "
-                + "seven hundred eighty nine quintillion "
-                + "one hundred twenty three quadrillion "
-                + "four hundred fifty six trillion "
-                + "seven hundred eighty nine billion "
-                + "one hundred twenty three million "
-                + "four hundred fifty six thousand "
-                + "seven hundred eighty nine"
+                + "one hundred and twenty three decillion "
+                + "four hundred and fifty six nonillion "
+                + "seven hundred and eighty nine octillion "
+                + "one hundred and twenty three septillion "
+                + "four hundred and fifty six sextillion "
+                + "seven hundred and eighty nine quintillion "
+                + "one hundred and twenty three quadrillion "
+                + "four hundred and fifty six trillion "
+                + "seven hundred and eighty nine billion "
+                + "one hundred and twenty three million "
+                + "four hundred and fifty six thousand "
+                + "seven hundred and eighty nine"
         },
     };
   }

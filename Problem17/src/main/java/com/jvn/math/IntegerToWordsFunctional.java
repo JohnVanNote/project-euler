@@ -15,10 +15,12 @@ public class IntegerToWordsFunctional {
   private static final BigInteger THOUSAND = BigInteger.valueOf(1000);
   private static final BigInteger ZERO = BigInteger.ZERO;
 
-  private IntegerToWordsFunctional(){}
+  private IntegerToWordsFunctional() {
+  }
 
   /**
    * Converts an integer to its English equivalent.
+   *
    * @param integer The integer.
    * @return The English equivalent.
    */
@@ -28,6 +30,7 @@ public class IntegerToWordsFunctional {
 
   /**
    * Converts an integer to its English equivalent.
+   *
    * @param integer The integer.
    * @return The English equivalent.
    */
@@ -35,14 +38,14 @@ public class IntegerToWordsFunctional {
     BigInteger absoluteInteger = integer.abs();
     Map<Integer, BigInteger> splitNumber = new TreeMap<>();
 
-    for (int i=0; !absoluteInteger.equals(ZERO); i++) {
+    for (int i = 0; !absoluteInteger.equals(ZERO); i++) {
       splitNumber.put(i, absoluteInteger.mod(THOUSAND));
       absoluteInteger = absoluteInteger.divide(THOUSAND);
     }
 
     Deque<String> deque = new ArrayDeque<>();
     int splitNumLength = splitNumber.size();
-    for (int i=0; i<splitNumLength; i++) {
+    for (int i = 0; i < splitNumLength; i++) {
       int digits = splitNumber.get(i).intValue();
 
       // Lets get the place
@@ -73,12 +76,21 @@ public class IntegerToWordsFunctional {
 
       // Lets get the first digit
       int hundredsDigit = digits / 100;
+      int hundredsExtra = digits % 100;
       String hundredsWord = toWordBase(hundredsDigit);
-      if (!"".equals(hundredsWord)) updateDeque(deque, "hundred");
+      if (!"".equals(hundredsWord)) {
+        if (hundredsExtra == 0) {
+          updateDeque(deque, "hundred");
+        } else {
+          updateDeque(deque, "hundred and");
+        }
+      }
       updateDeque(deque, hundredsWord);
     }
 
-    if (integer.compareTo(ZERO) < 0) updateDeque(deque, "negative");
+    if (integer.compareTo(ZERO) < 0) {
+      updateDeque(deque, "negative");
+    }
 
     String dequeString = dequeToString(deque);
     return dequeString.isEmpty() ? "zero" : dequeString;
@@ -86,6 +98,7 @@ public class IntegerToWordsFunctional {
 
   /**
    * Converts words to string base.
+   *
    * @param integer The number to be converted.
    * @return The converted number.
    */
@@ -95,6 +108,7 @@ public class IntegerToWordsFunctional {
 
   /**
    * Converts words to string place.
+   *
    * @param integer The number to be converted.
    * @return The converted number.
    */
@@ -104,6 +118,7 @@ public class IntegerToWordsFunctional {
 
   /**
    * Converts a deque to a readable number string.
+   *
    * @param deque The deque.
    * @return The readable string.
    */
@@ -113,7 +128,9 @@ public class IntegerToWordsFunctional {
     Iterator<String> it = deque.iterator();
     while (it.hasNext()) {
       string.append(it.next());
-      if (it.hasNext()) string.append(" ");
+      if (it.hasNext()) {
+        string.append(" ");
+      }
     }
 
     return string.toString();
@@ -121,11 +138,14 @@ public class IntegerToWordsFunctional {
 
   /**
    * Updates a deque but ignores all the empty string and null string.
+   *
    * @param deque The deque.
    * @param elem The element to be updated.
    */
   private static void updateDeque(Deque<String> deque, String elem) {
-    if (elem != null && !elem.isEmpty()) deque.push(elem);
+    if (elem != null && !elem.isEmpty()) {
+      deque.push(elem);
+    }
   }
 
 }

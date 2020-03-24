@@ -32,6 +32,7 @@
     <module>Problem15</module>
     <module>Problem16</module>
     <module>Problem17</module>
+    <module>Problem19</module>
   </modules>
 
   <dependencies>

@@ -10,20 +10,6 @@ public class AmicableNumbers {
 
   private static final int UNDER = 10000;
 
-  public static Set<Integer> findProperDivisors(int number) {
-    Set<Integer> divisors = new HashSet<>();
-    divisors.add(1);
-
-    for (int i = 2; i < (number / 2) + 1; i++) {
-      if (number % i == 0) {
-        divisors.add(i);
-      }
-    }
-
-    divisors.remove(number);
-    return divisors;
-  }
-
   public static int sumSet(Set<Integer> set) {
     int total = 0;
     for (int item : set) {
@@ -37,7 +23,7 @@ public class AmicableNumbers {
     Map<Integer, Integer> sumDivisorMap = new HashMap<>(under - 1);
 
     IntStream.range(1, under).forEachOrdered(n -> {
-      sumDivisorMap.put(n, sumSet(findProperDivisors(n)));
+      sumDivisorMap.put(n, sumSet(Divisors.findProperDivisors(n)));
     });
 
     return sumDivisorMap;

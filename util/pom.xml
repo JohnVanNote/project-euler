@@ -9,14 +9,7 @@
   </parent>
   <modelVersion>4.0.0</modelVersion>
 
-  <artifactId>Problem21</artifactId>
+  <artifactId>util</artifactId>
 
-  <dependencies>
-    <dependency>
-      <groupId>com.jvn</groupId>
-      <artifactId>util</artifactId>
-      <version>${project.version}</version>
-    </dependency>
-  </dependencies>
 
 </project>

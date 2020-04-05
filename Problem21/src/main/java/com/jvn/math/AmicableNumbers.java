@@ -1,5 +1,6 @@
 package com.jvn.math;
 
+import com.jvn.util.SetUtil;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
@@ -10,20 +11,12 @@ public class AmicableNumbers {
 
   private static final int UNDER = 10000;
 
-  public static int sumSet(Set<Integer> set) {
-    int total = 0;
-    for (int item : set) {
-      total += item;
-    }
-    return total;
-  }
-
   public static Map<Integer, Integer> sumDivisorMap(int under) {
 
     Map<Integer, Integer> sumDivisorMap = new HashMap<>(under - 1);
 
     IntStream.range(1, under).forEachOrdered(n -> {
-      sumDivisorMap.put(n, sumSet(Divisors.findProperDivisors(n)));
+      sumDivisorMap.put(n, SetUtil.sum(Divisors.findProperDivisors(n)));
     });
 
     return sumDivisorMap;
@@ -48,7 +41,7 @@ public class AmicableNumbers {
 
     }
 
-    System.out.println(String.format("The sum of all amicable numbers under %d is %d.", UNDER, sumSet(amicableNumbers)));
+    System.out.println(String.format("The sum of all amicable numbers under %d is %d.", UNDER, SetUtil.sum(amicableNumbers)));
   }
 
 }

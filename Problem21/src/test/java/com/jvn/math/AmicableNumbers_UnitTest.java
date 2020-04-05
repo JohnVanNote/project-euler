@@ -1,30 +1,12 @@
 package com.jvn.math;
 
 import com.google.common.collect.ImmutableMap;
-import com.google.common.collect.ImmutableSet;
 import java.util.Map;
-import java.util.Set;
 import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 public class AmicableNumbers_UnitTest {
-
-  @DataProvider
-  public Object[][] sets() {
-    return new Object[][]{
-        {ImmutableSet.of(), 0},
-        {ImmutableSet.of(1), 1},
-        {ImmutableSet.of(1, 2, 5), 8},
-        {ImmutableSet.of(1, 2, 4, 5, 10, 11, 20, 22, 44, 55, 110), 284},
-        {ImmutableSet.of(1, 2, 4, 71, 142), 220},
-    };
-  }
-
-  @Test(dataProvider = "sets")
-  public void sumSet_sets_expectedSum(Set<Integer> set, int expectedSum) {
-    Assert.assertEquals(AmicableNumbers.sumSet(set), expectedSum);
-  }
 
   @DataProvider
   public Object[][] maps() {

@@ -9,7 +9,7 @@ import org.testng.annotations.Test;
 public class SetUtil_UnitTest {
 
   @DataProvider
-  public Object[][] sets() {
+  public Object[][] sumSets() {
     return new Object[][]{
         {ImmutableSet.of(), 0},
         {ImmutableSet.of(1), 1},
@@ -19,10 +19,24 @@ public class SetUtil_UnitTest {
     };
   }
 
-  @Test(dataProvider = "sets")
-  public void sum_sets_expectedSum(Set<Integer> set, int expectedSum) {
+  @Test(dataProvider = "sumSets")
+  public void sum_sumSets_expectedSum(Set<Integer> set, int expectedSum) {
     Assert.assertEquals(SetUtil.sum(set), expectedSum);
   }
 
+  @DataProvider
+  public Object[][] setItems() {
+    return new Object[][]{
+        {ImmutableSet.of(), ImmutableSet.of()},
+        {ImmutableSet.of(10), ImmutableSet.of()},
+        {ImmutableSet.of(10, 8), ImmutableSet.of(18)},
+        {ImmutableSet.of(10, 8, 7), ImmutableSet.of(18, 17, 15)}
+    };
+  }
+
+  @Test(dataProvider = "setItems")
+  public void sumSetItems_setItems_expectedSet(Set<Integer> set, Set<Integer> expectedSet) {
+    Assert.assertEquals(SetUtil.sumSetItems(set), expectedSet);
+  }
 
 }

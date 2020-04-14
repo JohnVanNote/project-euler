@@ -9,9 +9,10 @@ public class Divisors {
     Set<Integer> divisors = new HashSet<>();
     divisors.add(1);
 
-    for (int i = 2; i < (number / 2) + 1; i++) {
+    for (int i = 2; i < Math.sqrt(number) + 1; i++) {
       if (number % i == 0) {
         divisors.add(i);
+        divisors.add(number / i);
       }
     }
 

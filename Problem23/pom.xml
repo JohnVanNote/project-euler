@@ -12,7 +12,11 @@
   <artifactId>Problem23</artifactId>
 
   <dependencies>
-
+    <dependency>
+      <groupId>com.jvn</groupId>
+      <artifactId>util</artifactId>
+      <version>${project.version}</version>
+    </dependency>
   </dependencies>
 
 

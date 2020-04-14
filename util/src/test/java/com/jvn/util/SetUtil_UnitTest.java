@@ -28,15 +28,15 @@ public class SetUtil_UnitTest {
   public Object[][] setItems() {
     return new Object[][]{
         {ImmutableSet.of(), ImmutableSet.of()},
-        {ImmutableSet.of(10), ImmutableSet.of()},
-        {ImmutableSet.of(10, 8), ImmutableSet.of(18)},
-        {ImmutableSet.of(10, 8, 7), ImmutableSet.of(18, 17, 15)}
+        {ImmutableSet.of(10), ImmutableSet.of(20)},
+        {ImmutableSet.of(10, 8), ImmutableSet.of(20, 18, 16)},
+        {ImmutableSet.of(10, 8, 7), ImmutableSet.of(20, 18, 17, 16, 15, 14)}
     };
   }
 
   @Test(dataProvider = "setItems")
-  public void sumSetItems_setItems_expectedSet(Set<Integer> set, Set<Integer> expectedSet) {
-    Assert.assertEquals(SetUtil.sumSetItems(set), expectedSet);
+  public void sumAllSetItems_setItems_expectedSet(Set<Integer> set, Set<Integer> expectedSet) {
+    Assert.assertEquals(SetUtil.sumAllSetItems(set), expectedSet);
   }
 
 }

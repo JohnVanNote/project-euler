@@ -16,17 +16,17 @@ public class SetUtil {
     return total;
   }
 
-  public static Set<Integer> sumSetItems(Set<Integer> set) {
+  public static Set<Integer> sumAllSetItems(Set<Integer> set) {
     Set<Integer> newSet = new HashSet<>();
 
-    if (set.size() > 1) {
+    if (set.size() > 0) {
       List<Integer> list = new ArrayList<>(set);
       int firstItem = list.get(0);
-      for (int i = 1; i < list.size(); i++) {
+      for (int i = 0; i < list.size(); i++) {
         newSet.add(firstItem + list.get(i));
       }
       List<Integer> newList = list.subList(1, list.size());
-      newSet.addAll(sumSetItems(new HashSet<>(newList)));
+      newSet.addAll(sumAllSetItems(new HashSet<>(newList)));
     }
 
     return newSet;

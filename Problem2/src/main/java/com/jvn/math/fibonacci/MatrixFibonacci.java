@@ -8,6 +8,7 @@ public class MatrixFibonacci implements Fibonacci {
   public int sequenceValue(int position) {
     int value = 0;
     if (position > 0) {
+
       Matrix matrix = new Matrix(Arrays.asList(
           Arrays.asList(1, 1),
           Arrays.asList(1, 0)

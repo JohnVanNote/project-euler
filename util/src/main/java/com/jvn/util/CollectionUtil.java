@@ -1,13 +1,14 @@
 package com.jvn.util;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-public class SetUtil {
+public class CollectionUtil {
 
-  public static int sum(Set<Integer> set) {
+  public static int sum(Collection<Integer> set) {
     int total = 0;
     for (int item : set) {
       total += item;
@@ -15,7 +16,7 @@ public class SetUtil {
     return total;
   }
 
-  public static String concatenate(Set<String> set) {
+  public static String concatenate(Collection<String> set) {
     StringBuilder total = new StringBuilder();
     for (String item : set) {
       total.append(item);
@@ -23,7 +24,7 @@ public class SetUtil {
     return total.toString();
   }
 
-  public static Set<Integer> sumAllSetItems(Set<Integer> set) {
+  public static Set<Integer> sumAllItems(Collection<Integer> set) {
     Set<Integer> newSet = new HashSet<>();
 
     if (set.size() > 0) {
@@ -33,7 +34,7 @@ public class SetUtil {
         newSet.add(firstItem + item);
       }
       List<Integer> newList = list.subList(1, list.size());
-      newSet.addAll(sumAllSetItems(new HashSet<>(newList)));
+      newSet.addAll(sumAllItems(new HashSet<>(newList)));
     }
 
     return newSet;

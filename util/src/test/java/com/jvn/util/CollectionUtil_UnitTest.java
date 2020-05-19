@@ -1,12 +1,14 @@
 package com.jvn.util;
 
+import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableSet;
+import java.util.List;
 import java.util.Set;
 import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
-public class SetUtil_UnitTest {
+public class CollectionUtil_UnitTest {
 
   @DataProvider
   public Object[][] sumSets() {
@@ -21,23 +23,23 @@ public class SetUtil_UnitTest {
 
   @Test(dataProvider = "sumSets")
   public void sum_sumSets_expectedSum(Set<Integer> set, int expectedSum) {
-    Assert.assertEquals(SetUtil.sum(set), expectedSum);
+    Assert.assertEquals(CollectionUtil.sum(set), expectedSum);
   }
 
   @DataProvider
-  public Object[][] concatSets() {
+  public Object[][] concatLists() {
     return new Object[][]{
-        {ImmutableSet.of(), ""},
-        {ImmutableSet.of("1"), "1"},
-        {ImmutableSet.of("1", "2", "5"), "125"},
-        {ImmutableSet.of("1", "2", "4", "5", "10", "11", "20", "22", "44", "55", "110"), "1245101120224455110"},
-        {ImmutableSet.of("1", "2", "4", "71", "142"), "12471142"},
+        {ImmutableList.of(), ""},
+        {ImmutableList.of("1"), "1"},
+        {ImmutableList.of("1", "2", "5"), "125"},
+        {ImmutableList.of("1", "2", "4", "5", "10", "11", "20", "22", "44", "55", "110"), "1245101120224455110"},
+        {ImmutableList.of("1", "2", "4", "71", "142"), "12471142"},
     };
   }
 
-  @Test(dataProvider = "concatSets")
-  public void concatenate_concatSets_expectedSum(Set<String> set, String expectedString) {
-    Assert.assertEquals(SetUtil.concatenate(set), expectedString);
+  @Test(dataProvider = "concatLists")
+  public void concatenate_concatSets_expectedSum(List<String> list, String expectedString) {
+    Assert.assertEquals(CollectionUtil.concatenate(list), expectedString);
   }
 
   @DataProvider
@@ -52,7 +54,7 @@ public class SetUtil_UnitTest {
 
   @Test(dataProvider = "setItems")
   public void sumAllSetItems_setItems_expectedSet(Set<Integer> set, Set<Integer> expectedSet) {
-    Assert.assertEquals(SetUtil.sumAllSetItems(set), expectedSet);
+    Assert.assertEquals(CollectionUtil.sumAllItems(set), expectedSet);
   }
 
 }

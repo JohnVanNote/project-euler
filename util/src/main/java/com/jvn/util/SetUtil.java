@@ -15,6 +15,14 @@ public class SetUtil {
     return total;
   }
 
+  public static String concatenate(Set<String> set) {
+    StringBuilder total = new StringBuilder();
+    for (String item : set) {
+      total.append(item);
+    }
+    return total.toString();
+  }
+
   public static Set<Integer> sumAllSetItems(Set<Integer> set) {
     Set<Integer> newSet = new HashSet<>();
 

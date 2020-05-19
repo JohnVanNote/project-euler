@@ -25,6 +25,22 @@ public class SetUtil_UnitTest {
   }
 
   @DataProvider
+  public Object[][] concatSets() {
+    return new Object[][]{
+        {ImmutableSet.of(), ""},
+        {ImmutableSet.of("1"), "1"},
+        {ImmutableSet.of("1", "2", "5"), "125"},
+        {ImmutableSet.of("1", "2", "4", "5", "10", "11", "20", "22", "44", "55", "110"), "1245101120224455110"},
+        {ImmutableSet.of("1", "2", "4", "71", "142"), "12471142"},
+    };
+  }
+
+  @Test(dataProvider = "concatSets")
+  public void concatenate_concatSets_expectedSum(Set<String> set, String expectedString) {
+    Assert.assertEquals(SetUtil.concatenate(set), expectedString);
+  }
+
+  @DataProvider
   public Object[][] setItems() {
     return new Object[][]{
         {ImmutableSet.of(), ImmutableSet.of()},

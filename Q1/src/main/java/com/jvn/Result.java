@@ -1,6 +1,9 @@
 package com.jvn;
 
-import java.util.*;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
 
 class Result {
 
@@ -12,8 +15,6 @@ class Result {
   ));
 
   /**
-   * Complete the 'countCounterfeit' function below.
-   *
    * The function is expected to return an INTEGER. The function accepts STRING_ARRAY serialNumber as parameter.
    *
    * @param serialNumber list of strings containing serial numbers

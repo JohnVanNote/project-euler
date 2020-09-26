@@ -2,12 +2,13 @@ package com.jvn;
 
 import java.util.Arrays;
 import java.util.List;
+import org.testng.Assert;
 import org.testng.annotations.Test;
 
 public class Result_UnitTest {
 
   @Test
-  public void test() {
+  public void countCounterfeit_invalidNumbers_value() {
     List<String> serialNumber = Arrays.asList(
         "A201550B",
         "ABB19991000Z",
@@ -23,7 +24,7 @@ public class Result_UnitTest {
         "SCd203010t"
     );
 
-    System.out.println(Result.countCounterfeit(serialNumber));
+    Assert.assertEquals(Result.countCounterfeit(serialNumber), 0);
   }
 
 }

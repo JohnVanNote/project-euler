@@ -1,6 +1,6 @@
 package com.jvn.math;
 
-import com.jvn.util.SetUtil;
+import com.jvn.util.CollectionUtil;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashSet;
@@ -13,7 +13,7 @@ public class AbundantNumber {
 
   public static boolean isAbundant(int number) {
     Set<Integer> properDivisors = Divisors.findProperDivisors(number);
-    return number < SetUtil.sum(properDivisors);
+    return number < CollectionUtil.sum(properDivisors);
   }
 
   public static Set<Integer> getAbundantUnder(int under) {

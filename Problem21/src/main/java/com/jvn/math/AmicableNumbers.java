@@ -1,6 +1,6 @@
 package com.jvn.math;
 
-import com.jvn.util.SetUtil;
+import com.jvn.util.CollectionUtil;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
@@ -16,7 +16,7 @@ public class AmicableNumbers {
     Map<Integer, Integer> sumDivisorMap = new HashMap<>(under - 1);
 
     IntStream.range(1, under).forEachOrdered(n -> {
-      sumDivisorMap.put(n, SetUtil.sum(Divisors.findProperDivisors(n)));
+      sumDivisorMap.put(n, CollectionUtil.sum(Divisors.findProperDivisors(n)));
     });
 
     return sumDivisorMap;
@@ -41,7 +41,7 @@ public class AmicableNumbers {
 
     }
 
-    System.out.println(String.format("The sum of all amicable numbers under %d is %d.", UNDER, SetUtil.sum(amicableNumbers)));
+    System.out.println(String.format("The sum of all amicable numbers under %d is %d.", UNDER, CollectionUtil.sum(amicableNumbers)));
   }
 
 }

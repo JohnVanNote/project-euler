@@ -38,6 +38,9 @@
     <module>Problem22</module>
     <module>Problem23</module>
     <module>util</module>
+    <module>Problem24</module>
+    <module>HackerRank</module>
+    <module>Q1</module>
   </modules>
 
   <dependencies>

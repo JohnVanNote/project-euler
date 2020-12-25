@@ -20,7 +20,7 @@ public class LexicographicPermutations_UnitTest {
     };
   }
 
-  //@Test(dataProvider = "objects")
+  @Test(dataProvider = "objects")
   public void getPermutations_objects_expectedSet(List<String> objects, Set<String> expectedSet) {
     Assert.assertEquals(LexicographicPermutations.getPermutations(objects), expectedSet);
   }

@@ -1,39 +1,44 @@
 package com.jvn.math;
 
-import com.jvn.util.CollectionUtil;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 public class LexicographicPermutations {
 
-  public static List<String> getPermutations(List<String> integers) {
-    List<String> integersCopy = new ArrayList<>(integers);
-    System.out.println("Integers " + integersCopy);
-    Collections.sort(integersCopy);
-    List<String> permutations = new ArrayList<>();
+  public static List<List<Character>> getPermutations(List<Character> characters) {
+    List<List<Character>> permutations = new ArrayList<>();
+    permutations.add(characters);
+    if (characters != null) {
+      int characterSize = characters.size();
+      if (characterSize > 1) {
+        for (int i = characterSize; i >= 2; i--) {
 
-    if (!integers.isEmpty()) {
-      permutations.addAll(subPermutation(integersCopy));
-    }
+          Character ultimateCharacter = characters.get(i - 1);
+          Character penultimateCharacter = characters.get(i - 2);
+          if (penultimateCharacter <= ultimateCharacter) {
 
-    return permutations;
-  }
+            // beginning
+            List<Character> startingCharacters = characters.subList(0, i - 2);
 
-  private static List<String> subPermutation(List<String> integers) {
-    List<String> permutations = new ArrayList<>();
-    if (!integers.isEmpty()) {
-      String firstItem = integers.get(0).toString();
-      int length = integers.size();
-      if (length > 1) {
-        List<String> theRest = integers.subList(1, length);
-        for (int i = 0; i < theRest.size(); i++) {
-          List<String> newList = new ArrayList<>(theRest);
-          newList.add(i, firstItem);
-          permutations.add(CollectionUtil.concatenate(newList));
+            // middle
+            List<Character> switchCharacters = new ArrayList<>();
+            switchCharacters.add(ultimateCharacter);
+            switchCharacters.add(penultimateCharacter);
+
+            // end
+            List<Character> endingCharacters = characters.subList(i, characterSize);
+
+            // new perm
+            List<Character> newPermutation = new ArrayList<>(startingCharacters);
+            newPermutation.addAll(switchCharacters);
+            newPermutation.addAll(endingCharacters);
+
+            permutations.addAll(getPermutations(newPermutation));
+          }
         }
       }
     }
+    System.out.println("Characters " +  characters + " Permutations " + permutations);
     return permutations;
   }
 

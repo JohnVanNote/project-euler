@@ -42,6 +42,7 @@
     <module>Q1</module>
     <module>Q2</module>
     <module>Problem25</module>
+    <module>Problem1</module>
   </modules>
 
   <dependencies>

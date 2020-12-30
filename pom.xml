@@ -16,6 +16,7 @@
   </properties>
 
   <modules>
+    <module>Problem1</module>
     <module>Problem2</module>
     <module>Problem3</module>
     <module>Problem4</module>
@@ -32,19 +33,18 @@
     <module>Problem15</module>
     <module>Problem16</module>
     <module>Problem17</module>
+    <module>Problem18</module>
     <module>Problem19</module>
     <module>Problem20</module>
     <module>Problem21</module>
     <module>Problem22</module>
     <module>Problem23</module>
-    <module>util</module>
     <module>Problem24</module>
+    <module>Problem25</module>
+    <module>Problem67</module>
     <module>Q1</module>
     <module>Q2</module>
-    <module>Problem25</module>
-    <module>Problem1</module>
-    <module>Problem18</module>
-    <module>untitled</module>
+    <module>util</module>
   </modules>
 
   <dependencies>

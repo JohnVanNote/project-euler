@@ -23,36 +23,37 @@ public class MaximumPathSum {
   public static int findMaximumPath(List<List<Integer>> treeMatrix) {
     int max = 0;
 
-    List<List<Integer>> copyTree = new ArrayList<>(treeMatrix);
+    List<List<Integer>> treeCopy = new ArrayList<>(treeMatrix);
 
-    int treeDepth = copyTree.size();
+    int treeDepth = treeCopy.size();
     if (treeDepth > 0) {
 
       // roll up
       for (int i = treeDepth - 1; i > 0; i--) {
-        int oneUp = i - 1;
+        int oneLineUp = i - 1;
 
-        List<Integer> lowerLine = copyTree.get(i);
-        List<Integer> higherLine = copyTree.get(oneUp);
-        List<Integer> newHigherLine = new ArrayList<>();
+        List<Integer> bottomLine = treeCopy.get(i);
+        List<Integer> upperLine = treeCopy.get(oneLineUp);
+        List<Integer> maxUpperLine = new ArrayList<>(); // The new upper, max values only
 
-        for (int j = 0; j < higherLine.size(); j++) {
-          if (newHigherLine.size() <= j) {
-            newHigherLine.add(0);
+        for (int j = 0; j < upperLine.size(); j++) {
+          if (maxUpperLine.size() <= j) {
+            maxUpperLine.add(0);
           }
-          int currentNewValue = newHigherLine.get(j);
-          int highLineValue = higherLine.get(j);
-          int lowerLineLeft = lowerLine.get(j);
-          int lowerLineRight = lowerLine.get(j + 1);
 
-          int tempLeft = lowerLineLeft + highLineValue;
-          int tempRight = lowerLineRight + highLineValue;
+          int maxValue = maxUpperLine.get(j);
+          int upperLineValue = upperLine.get(j);
+          int bottomLineLeftValue = bottomLine.get(j);
+          int bottomLineRightValue = bottomLine.get(j + 1);
 
-          newHigherLine.set(j, Math.max(Math.max(tempLeft, tempRight), currentNewValue));
+          int tempLeftValue = bottomLineLeftValue + upperLineValue;
+          int tempRightValue = bottomLineRightValue + upperLineValue;
+
+          maxUpperLine.set(j, Math.max(Math.max(tempLeftValue, tempRightValue), maxValue));
         }
-        copyTree.set(oneUp, newHigherLine);
+        treeCopy.set(oneLineUp, maxUpperLine);
       }
-      max = copyTree.get(0).get(0);
+      max = treeCopy.get(0).get(0);
     }
 
     return max;
